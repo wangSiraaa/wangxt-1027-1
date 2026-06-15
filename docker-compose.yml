@@ -1,0 +1,16 @@
+version: '3.8'
+services:
+  contract-system:
+    build: .
+    ports:
+      - "5173:5173"
+      - "3001:3001"
+    environment:
+      - NODE_ENV=development
+      - PORT=3001
+      - JWT_SECRET=contract-demo-secret-2025
+    volumes:
+      - contract-data:/app/backend/data
+    restart: unless-stopped
+volumes:
+  contract-data:
